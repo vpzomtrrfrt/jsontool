@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var argv = process.argv.slice(2);
 var command = argv[0];
 try {
