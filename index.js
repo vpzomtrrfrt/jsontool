@@ -11,5 +11,8 @@ try {
 	process.exit(1);
 }
 module(argv.slice(1)).then((content) => {
-	console.log(JSON.stringify(content));
+	if(typeof content != "string") {
+		content = JSON.stringify(content);
+	}
+	console.log(content);
 });
