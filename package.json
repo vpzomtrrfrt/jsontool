@@ -10,5 +10,9 @@
   "license": "MIT",
   "dependencies": {
     "mz": "^2.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vpzomtrrfrt/jsontool.git"
   }
 }
