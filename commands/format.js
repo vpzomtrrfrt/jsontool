@@ -13,7 +13,19 @@ function format(str, obj) {
 			throw "Unmatched %";
 		}
 		tr += str.substring(pos, ind);
-		tr += obj[str.substring(ind+1, end)];
+		var key = str.substring(ind+1, end);
+		var value;
+		if(key in obj) {
+			value = obj[key];
+		}
+		else {
+			var spl = key.split('.');
+			value = obj;
+			spl.forEach((k) => {
+				value = value[k];
+			});
+		}
+		tr += value;
 		pos = end+1;
 	}
 	return tr;

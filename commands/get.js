@@ -7,7 +7,13 @@ module.exports = function(argv) {
 	}
 	else {
 		return jtutil.readFile(argv[1] || "-").then((content) => {
-			return JSON.parse(content.toString())[argv[0]];
+			var data = JSON.parse(content.toString());
+			if(argv[0] in data) {
+				return data[argv[0]];
+			}
+			else if("map" in data) {
+				return data.map((elem) => elem[argv[0]]);
+			}
 		});
 	}
 };
